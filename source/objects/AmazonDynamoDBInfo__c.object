@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Amazon DynamoDB Information</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>EndpointUrl__c</fullName>
+        <defaultValue>&quot;https://dynamodb.us-east-1.amazonaws.com/&quot;</defaultValue>
+        <description>The Endpoint URL of the DynamoDBService</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Endpoint URL of the DynamoDBService</inlineHelpText>
+        <label>EndPoint URL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <defaultValue>&quot;us-east-1&quot;</defaultValue>
+        <description>The Region the DynamoDB is located in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Region the DynamoDB is located in.</inlineHelpText>
+        <label>Region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>apiKey__c</fullName>
+        <description>Amazon AWS Identity and Access Management User API Key</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Amazon AWS Identity and Access Management User API Key</inlineHelpText>
+        <label>API Key</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>apiSecret__c</fullName>
+        <description>The API Secret from the Identity Access Management User that has Amazon DynamoDB</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API Secret from the Identity Access Management User that has Amazon DynamoDB</inlineHelpText>
+        <label>API Secret</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Amazon DynamoDB Info</label>
+    <visibility>Public</visibility>
+</CustomObject>

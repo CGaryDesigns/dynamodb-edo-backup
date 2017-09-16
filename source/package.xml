@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DynamoDBEDOBackup</fullName>
+    <description>Dynamo DB Salesforce Provider for External Data Objects</description>
+    <types>
+        <members>AmazonUtilities</members>
+        <members>DynamoDBConnection</members>
+        <members>DynamoDBHelper</members>
+        <members>DynamoDBProvider</members>
+        <members>UniversalLogger</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AmazonDynamoDBInfo__c.EndpointUrl__c</members>
+        <members>AmazonDynamoDBInfo__c.Region__c</members>
+        <members>AmazonDynamoDBInfo__c.apiKey__c</members>
+        <members>AmazonDynamoDBInfo__c.apiSecret__c</members>
+        <members>LoggingSetting__mdt.AccountId__c</members>
+        <members>LoggingSetting__mdt.EndpointPattern__c</members>
+        <members>LoggingSetting__mdt.LogTags__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>LoggingSetting.Loggly</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
+        <members>AmazonDynamoDBInfo__c</members>
+        <members>LoggingSetting__mdt</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>LoggingSetting__mdt-Logging Setting Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>AmazonDynamoDBUSEast1</members>
+        <members>AmazonIAM</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    <version>40.0</version>
+</Package>

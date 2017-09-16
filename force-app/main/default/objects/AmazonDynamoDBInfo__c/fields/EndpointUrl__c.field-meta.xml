@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EndpointUrl__c</fullName>
+    <defaultValue>"https://dynamodb.us-east-1.amazonaws.com/"</defaultValue>
+    <description>The Endpoint URL of the DynamoDBService</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The Endpoint URL of the DynamoDBService</inlineHelpText>
+    <label>EndPoint URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>
