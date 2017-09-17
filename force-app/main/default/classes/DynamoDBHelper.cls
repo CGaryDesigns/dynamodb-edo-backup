@@ -249,6 +249,43 @@ global class DynamoDBHelper {
         }
 
     }
+    public static String GetRecords(String tableName, List<String> fieldList, List<String> projectionExpressions, String startKey){
+        //create the request JSON Object
+        JSONGenerator gen = JSON.createGenerator(true);
+        gen.writeStartObject();                                                         //{
+            gen.writeStringField('TableName', tableName);                               //  "TableName":<tableName>,
+            gen.writeFieldName('ExclusiveStartKey');                                    //  "ExclusiveStartKey":
+            gen.writeStartObject();                                                     //  {
+                gen.writeFieldName('ExternalId');                                       //      "ExternalId":
+                gen.writeStartObject();                                                 //      {
+                    gen.writeStringField('S', startKey);                                 //          "S":<startKey>    
+                gen.writeEndObject();                                                   //      }
+            gen.writeEndObject();                                                       //  },
+            gen.writeStringField('ProjectionExpression', String.join(fieldList,','));   //  "ProjectionExpression":<fieldList parts>,
+            gen.writeStringField('ReturnConsumedCapacity','INDEXES');                   //  "ReturnConsumedCapacity":"INDEXES",
+            gen.writeStringField('Select','ALL_PROJECTED_ATTRIBUTES');                  //  "Select":"ALL_PROJECTED_ATTRIBUTES"
+        gen.writeEndObject();                                                           //}
+        //now lets make the request:
+        Map<String,String> headerMap = new Map<String,String>();
+        Blob payload = Blob.valueOf(gen.getAsString());
+        Url endpoint = new Url(ConfigData.EndpointUrl__c);
+        HttpRequest req = AmazonUtilities.CreateSignedRequest('GET', endpoint, headerMap, payload, AWS_SERVICE_NAME, ConfigData.Region__c,ConfigData.apiKey__c,ConfigData.apiSecret__c);
+        req.setHeader('X-Amz-Target','DynamoDB20120810.Scan');
+        req.setHeader('Content-Type','application/x-amz-json-1.0');
+        Http svc = new Http();
+        HttpResponse res;
+        String resultString;
+        try{
+            res = svc.send(req);
+            if(res.getStatusCode() != 200) throw new AmazonUtilities.DynamoDBException(req.getBody());
+            resultString = res.getBody();
+        }catch(System.Exception ex){
+            UniversalLogger logger = new UniversalLogger();
+            logger.LogErrNow(ex);
+            throw ex;
+        }
+        return resultString;
+    }   
     /**
      * This method is designed to generate the JSON needed to insert the metadata about the tables being archived
      * into the main MetaData table on DynamoDB.
