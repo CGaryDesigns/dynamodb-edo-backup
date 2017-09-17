@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+  <types>
+    <name>ApexClass</name>
+    <members>AmazonUtilities</members>
+    <members>DynamoDBConnection</members>
+    <members>DynamoDBHelper</members>
+    <members>DynamoDBProvider</members>
+    <members>UniversalLogger</members>
+  </types>
+  <types>
+    <name>CustomMetadata</name>
+    <members>LoggingSetting.Loggly</members>
+  </types>
+  <types>
+    <name>Layout</name>
+    <members>LoggingSetting__mdt-Logging Setting Layout</members>
+  </types>
+  <types>
+    <name>CustomObject</name>
+    <members>AmazonDynamoDBInfo__c</members>
+    <members>LoggingSetting__mdt</members>
+  </types>
+  <types>
+    <name>RemoteSiteSetting</name>
+    <members>AmazonDynamoDBUSEast1</members>
+    <members>AmazonIAM</members>
+  </types>
+  <version>40.0</version>
+</Package>

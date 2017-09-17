@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Logging Settings to be used with the Universal Logging.</description>
+    <label>Logging Setting</label>
+    <pluralLabel>Logging Settings</pluralLabel>
+    <visibility>Public</visibility>
+    <fields>
+        <fullName>AccountId__c</fullName>
+        <description>The Account Identifier for the external LaaS Service</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The Account Identifier for the external LaaS Service</inlineHelpText>
+        <label>Account ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EndpointPattern__c</fullName>
+        <description>The Pattern for the URL Endpoint</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>The Pattern for the URL Endpoint</inlineHelpText>
+        <label>Endpoint Pattern</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LogTags__c</fullName>
+        <description>Comma separated list of tags to tag the log with in order to make it easier to locate with in the LaaS Service.</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>Comma separated list of tags to tag the log with in order to make it easier to locate with in the LaaS Service.</inlineHelpText>
+        <label>Log Tags</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
