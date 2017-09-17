@@ -16,4 +16,5 @@ before_install:
 - sfdx force:auth:jwt:grant --clientid $CONSUMERKEY --jwtkeyfile assets/server.key
   --username $USERNAME --setdefaultdevhubusername -a HubOrg
 script:
-- 
+- sfdx force:source:convert -r force-app -d target
+- sfdx force:mdapi:deploy -d target -u HubOrg
