@@ -17,4 +17,4 @@ before_install:
   --username $USERNAME --setdefaultdevhubusername -a HubOrg
 script:
 - sfdx force:source:convert -r force-app -d target
-- sfdx force:mdapi:deploy -d target -u HubOrg
+- sfdx force:mdapi:deploy -d target -w 2 -l RunLocalTests -u HubOrg
