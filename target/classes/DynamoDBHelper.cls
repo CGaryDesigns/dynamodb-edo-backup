@@ -10,7 +10,7 @@ global class DynamoDBHelper {
 
     public static final String METADATA_TABLE_NAME = 'SFDCMetaData';
     public static final String AWS_SERVICE_NAME = 'dynamodb';
-    public static final String TABLE_INDEX_FIELD = 'objecthash';
+    public static final String TABLE_INDEX_FIELD = 'ExternalId';
     public static AmazonDynamoDBInfo__c ConfigData;
 
     static {
@@ -240,7 +240,7 @@ global class DynamoDBHelper {
         HttpResponse httpRes;
         try{
             httpRes = svc.send(req);
-            if(httpRes.getStatusCode() != 200) throw new AmazonUtilities.DynamoDBException(req.getBody());
+            if(httpRes.getStatusCode() != 200) throw new AmazonUtilities.DynamoDBException(httpRes.getBody());
             System.debug(LoggingLevel.INFO,'\n\n Response: ' + httpRes.getBody() + '\n\n');
         }catch(System.Exception ex){
             UniversalLogger logger = new UniversalLogger();

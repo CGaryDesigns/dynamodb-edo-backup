@@ -80,16 +80,16 @@ public class AmazonUtilities {
 
         return request;
     }
-
+    @TestVisible
     private static String canonicalMethodFor(String method) {
         return method.toUpperCase();
     }
-
+    @TestVisible
     private static String canonicalUriFor(String endpoint) {
         Url uri = new Url(endpoint);
         return rfc3986For(uri.getPath(), false);
     }
-
+    @TestVisible
     private static String canonicalQueryStringFor(Map<String,String> parameters) {
 
         //sort keys by ascii code
@@ -106,7 +106,7 @@ public class AmazonUtilities {
 
         return String.join(canonicalParameters, '&');
     }
-
+    @TestVisible
     private static String canonicalHeadersFor(Map<String,String> key2value) {
 
         //lowercase header keys
@@ -123,7 +123,7 @@ public class AmazonUtilities {
 
         return String.join(canonicalHeaders, '');
     }
-
+    @TestVisible
     private static String signedHeadersFor(Map<String,String> headers) {
 
         //lowercase header keys
@@ -139,12 +139,12 @@ public class AmazonUtilities {
 
         return String.join(signedHeaders, ';');
     }
-
+    @TestVisible
     private static String hexEncodedHashFor(Blob data) {
         Blob hash = Crypto.generateDigest('SHA256', data);
         return EncodingUtil.convertToHex(hash);
     }
-
+    @TestVisible
     private static String rfc3986For(String characters, Boolean encodeSlash) {
         String result = '';
         for (Integer i = 0; i < characters.length(); i++) {
