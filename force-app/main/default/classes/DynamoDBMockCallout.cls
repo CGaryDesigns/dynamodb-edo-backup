@@ -9,6 +9,11 @@ global class DynamoDBMockCallout implements HttpCalloutMock {
         //first we need to determine what type of Request this is
         String requestType = req.getHeader('X-Amz-Target');
         List<String> requestCommandList = requestType.split('.');
+        if(requestCommandList == null) {
+            requestCommandList = new List<String>();
+            requestCommandList.add('DynamoDB_20120810');
+            requestCommandList.add('CreateTable');
+        }
         if(requestCommandList[1] == 'BatchWriteItem'){
             //we know that we are writing some items, they may be entries into the SFDCMetaData
             //table or into another seperate table.
@@ -17,10 +22,14 @@ global class DynamoDBMockCallout implements HttpCalloutMock {
             //table or into another separate table
 
         } else if(reqeustCommandList[1] == 'CreateTable'){
+            //put together a date Strign
+            String currentDateString = String.valueOf(Date.today().year());
+            currentDateString += '-' + String.valueOf(Date.today().month());
+            currentDateString += '-' + String.valueOf(Date.today().day());
             res.setStatus('OK');
             res.setStatusCode(200);
             res.setHeader('Content-Type', 'application/x-amz-json-1.0');
-            res.setHeader('Date',Date.today().format('YYYY-MM-DD'));
+            res.setHeader('Date',currentDateString);
             JSONGenerator gen = JSON.createGenerator(true);
             gen.writeStartObject();
                 gen.writeFieldName('TableDescription');
