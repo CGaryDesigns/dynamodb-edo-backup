@@ -21,7 +21,7 @@ global class DynamoDBMockCallout implements HttpCalloutMock {
             //we know that we are reading some items, they may be entries into the SFDCMetaData
             //table or into another separate table
 
-        } else if(reqeustCommandList[1] == 'CreateTable'){
+        } else if(requestCommandList[1] == 'CreateTable'){
             //put together a date Strign
             String currentDateString = String.valueOf(Date.today().year());
             currentDateString += '-' + String.valueOf(Date.today().month());
