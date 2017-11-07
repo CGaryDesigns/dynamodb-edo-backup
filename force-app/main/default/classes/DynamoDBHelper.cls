@@ -78,6 +78,9 @@ global class DynamoDBHelper {
         }
         return stringToReturn;
     }
+    public static void CreateDynamoTable(String tableName){
+        CreateDynamoTable(tableName,TABLE_INDEX_FIELD);
+    }
     public static void CreateDynamoTable(String tableName, String indexName){
         JSONGenerator gen = JSON.createGenerator(true);
         gen.writeStartObject();
@@ -130,6 +133,8 @@ global class DynamoDBHelper {
      * @param sObject record                        -the record to send to DynamoDB
      */
     public static void PutRecord(SObject record, String externalTableName){
+        System.debug(LoggingLevel.INFO,'\n\n*****\nJSON represenation:\n' + JSON.serialize(record));
+
         //first we need to create a map of fieldNames to AmazonDataTypes
         Map<String,String> fieldNameToAmazonDataType = new Map<String,String>();
         Schema.DescribeSObjectResult recTypeDescribe = record.getSObjectType().getDescribe();
